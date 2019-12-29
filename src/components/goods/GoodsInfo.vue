@@ -112,6 +112,14 @@ export default {
     addToShopCar() {
       // 添加到购物车
       this.ballFlag = !this.ballFlag;
+      var goodsinfo = {
+        id: this.id,
+        count: this.selectedCount,
+        price: this.goodsinfo.sell_price,
+        selected: true
+      };
+      // 调用 store 中的 mutations 来将商品加入购物车
+      this.$store.commit("addToCar", goodsinfo);
     },
     beforeEnter(el) {
       el.style.transform = "translate(0, 0)";
